@@ -22,12 +22,7 @@
                 @keydown.enter.native="handleIconClick">
               </el-autocomplete>
               <router-link to="/goods"><a @click="changePage(2)">全部商品</a></router-link>
-              <router-link to="/thanks"><a @click="changePage(4)">捐赠</a></router-link>
-              <!-- <router-link to="/">Smartisan M1 / M1L</router-link>
-              <router-link to="/">Smartisan OS</router-link>
-              <router-link to="/">欢喜云</router-link>
-              <router-link to="/">应用下载</router-link>
-              <router-link to="/">官方论坛</router-link> -->
+              <router-link to="/thanks"><a @click="changePage(4)">热销商品</a></router-link>
             </div>
             <div class="nav-aside" ref="aside" :class="{fixed:st}">
               <div class="user pr">
@@ -136,25 +131,16 @@
                   <a @click="changGoods(2)" :class="{active:choosePage===2}">全部商品</a>
                 </li>
                 <li>
-                  <a @click="changGoods(3)" :class="{active:choosePage===3}">品牌周边</a>
+                  <a @click="changGoods(3)" :class="{active:choosePage===3}">热销商品</a>
                 </li>
                 <li>
-                  <router-link to="/thanks"><a @click="changePage(4)" :class="{active:choosePage===4}">捐赠名单</a></router-link>
+                  <a @click="changGoods(4)" :class="{active:choosePage===4}">分类1</a>
                 </li>
                 <li>
-                  <a href="http://xmadmin.exrick.cn" target="_blank">后台管理系统</a>
-                </li>
-		            <li>
-                  <a href="http://xpay.exrick.cn" target="_blank">XPay支付系统</a>
+                  <a @click="changGoods(5)" :class="{active:choosePage===5}">分类2</a>
                 </li>
                 <li>
-                  <a href="https://github.com/Exrick/x-boot" target="_blank">XBoot框架</a>
-                </li>
-                <li>
-                  <a href="https://www.bilibili.com/video/av23121122/" target="_blank">宣传视频</a>
-                </li>
-                <li>
-                  <a href="https://github.com/Exrick/xmall" target="_blank">Github</a>
+                  <a @click="changGoods(6)" :class="{active:choosePage===6}">分类3</a>
                 </li>
               </ul>
               <div></div>
@@ -167,13 +153,14 @@
 </template>
 <script>
   import YButton from '/components/YButton'
-  import { mapMutations, mapState } from 'vuex'
-  import { getCartList, cartDel, getQuickSearch } from '/api/goods'
-  import { loginOut } from '/api/index'
-  import { setStore, getStore, removeStore } from '/utils/storage'
+  import {mapMutations, mapState} from 'vuex'
+  import {getCartList, cartDel, getQuickSearch} from '/api/goods'
+  import {loginOut} from '/api/index'
+  import {setStore, getStore, removeStore} from '/utils/storage'
   // import store from '../store/'
   import 'element-ui/lib/theme-default/index.css'
-  export default{
+
+  export default {
     data () {
       return {
         user: {},
@@ -246,6 +233,27 @@
             path: '/refreshgoods',
             query: {
               cid: 1184
+            }
+          })
+        } else if (v === 4) {
+          this.$router.push({
+            path: '/refreshgoods',
+            query: {
+              cid: 1148
+            }
+          })
+        } else if (v === 5) {
+          this.$router.push({
+            path: '/refreshgoods',
+            query: {
+              cid: 560
+            }
+          })
+        } else if (v === 6) {
+          this.$router.push({
+            path: '/refreshgoods',
+            query: {
+              cid: 76
             }
           })
         }
@@ -496,7 +504,7 @@
       justify-content: center;
       align-items: center;
       margin-right: 22px;
-      .el-autocomplete{
+      .el-autocomplete {
         width: 20vw;
       }
       a {
@@ -509,7 +517,7 @@
           color: #fff;
         }
       }
-      a:nth-child(2){
+      a:nth-child(2) {
         // width: 5vw;
         margin-left: -10px;
       }
