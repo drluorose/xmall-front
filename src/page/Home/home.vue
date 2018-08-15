@@ -220,27 +220,27 @@
     opacity: 0;
   }
 
-  .page { 
-    position: absolute; 
+  .page {
+    position: absolute;
     width: 100%;
     top: 470px;
-    z-index: 30; 
+    z-index: 30;
     .dots {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      .dot-active { 
-        display: inline-block; 
-        width: 15px; 
-        height: 15px; 
-        background-color: whitesmoke; 
-        border-radius: 8px; 
-        margin-right: 10px; 
-        cursor: pointer; 
+      .dot-active {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background-color: whitesmoke;
+        border-radius: 8px;
+        margin-right: 10px;
+        cursor: pointer;
       }
-      .dot { 
-        opacity: 0.2; 
+      .dot {
+        opacity: 0.2;
       }
     }
   }
@@ -477,7 +477,7 @@
     align-items: center;
     .imgbanner {
       width: 50%;
-      height: 430px; 
+      height: 430px;
       .cover-link {
         cursor: pointer;
         display: block;
@@ -485,7 +485,7 @@
         top: 60px;
         left: 0;
         width: 50%;
-        height: 430px; 
+        height: 430px;
         z-index: 4;
         background: url(data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEHAAEALAAAAAABAAEAAAICTAEAOw==) repeat;
       }
