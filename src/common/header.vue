@@ -274,7 +274,10 @@
           if (array.length !== 0) {
             this.searchResults = array
           } else {
-            this.searchResults = []
+            obj = {}
+            obj.value = '热卖商品'
+            array.push(obj)
+            this.searchResults = array
           }
         })
       },

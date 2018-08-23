@@ -13,7 +13,6 @@
                 <div class="s-content">
                     <slot name="content"></slot>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -100,7 +99,7 @@ export default {
             transition: all 1s;
             transform: rotate(360deg);
             transform-origin:50% 50%;
-            }   
+            }
             path{
                 fill: #8a8a8a;
             }

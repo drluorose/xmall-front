@@ -32,6 +32,14 @@ export const editCheckAll = (params) => {
 export const cartDel = (params) => {
   return http.fetchPost(domain.productDomain + '/member/cartDel', params)
 }
+// 获取所有的国家信息
+export const allCountry = (params) => {
+  return http.fetchPost(domain.productDomain + '/member/allCountry', params)
+}
+// 获取国家下面的城市
+export const citiesCountry = (params) => {
+  return http.fetchPost(domain.productDomain + '/member/citiesCountry', params)
+}
 // 获取用户地址
 export const addressList = (params) => {
   return http.fetchPost(domain.productDomain + '/member/addressList', params)
