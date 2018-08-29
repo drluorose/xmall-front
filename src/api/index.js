@@ -6,7 +6,7 @@ export const userLogin = (params) => {
 }
 // 退出登陆
 export const loginOut = (params) => {
-  return http.fetchGet(domain.productDomain + '/member/loginOut', params)
+  return http.fetchGet(domain.productDomain + '/member/loginOut?sign=' + params.sign + '&mid=' + params.mid, params)
 }
 // 用户信息
 export const userInfo = (params) => {
@@ -18,11 +18,11 @@ export const register = (params) => {
 }
 // 上传图片
 export const upload = (params) => {
-  return http.fetchPost(domain.productDomain + '/member/imgaeUpload', params)
+  return http.fetchPost(domain.productDomain + '/member/imgaeUpload?sign=' + params.sign + '&mid=' + params.mid, params)
 }
 // 修改头像
 export const updateheadimage = (params) => {
-  return http.fetchPost(domain.productDomain + '/member/updateheadimage', params)
+  return http.fetchPost(domain.productDomain + '/member/updateheadimage?sign=' + params.sign + '&mid=' + params.mid, params)
 }
 // 捐赠列表
 export const thanksList = (params) => {

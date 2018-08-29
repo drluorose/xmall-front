@@ -176,6 +176,8 @@
           if (res.result.state === 1) {
             setStore('token', res.result.token)
             setStore('userId', res.result.id)
+            setStore('sign', res.result.jwtSign)
+            setStore('mid', res.result.mid)
             // 登录后添加当前缓存中的购物车
             if (this.cart.length) {
               for (var i = 0; i < this.cart.length; i++) {

@@ -306,7 +306,7 @@
       },
       // 登陆时获取一次购物车商品
       _getCartList () {
-        getCartList({userId: getStore('userId')}).then(res => {
+        getCartList({userId: getStore('userId'), mid: getStore('mid'), sign: getStore('sign')}).then(res => {
           if (res.success === true) {
             setStore('buyCart', res.result)
           }

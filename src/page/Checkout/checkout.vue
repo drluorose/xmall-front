@@ -311,6 +311,8 @@
       // 保存
       save (p) {
         this.popupOpen = false
+        p.sign = getStore('sign')
+        p.mid = getStore('mid')
         if (p.addressId) {
           this._addressUpdate(p)
         } else {
