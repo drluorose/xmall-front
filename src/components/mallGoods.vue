@@ -26,9 +26,10 @@
 </template>
 <script>
   import YButton from '/components/YButton'
-  import { addCart } from '/api/goods.js'
-  import { mapMutations, mapState } from 'vuex'
-  import { getStore } from '/utils/storage'
+  import {addCart} from '/api/goods.js'
+  import {mapMutations, mapState} from 'vuex'
+  import {getStore} from '/utils/storage'
+
   export default {
     props: {
       msg: {
@@ -46,7 +47,15 @@
       addCart (id, price, name, img) {
         if (!this.showMoveImg) {     // 动画是否在运动
           if (this.login) { // 登录了 直接存在用户名下
-            addCart({userId: getStore('userId'), productId: id, productNum: 1}).then(res => {
+            addCart(
+              {
+                userId: getStore('userId'),
+                productId: id,
+                productNum: 1,
+                mid: getStore('mid'),
+                sign: getStore('sign')
+              }
+            ).then(res => {
               // 并不重新请求数据
               this.ADD_CART({productId: id, salePrice: price, productName: name, productImg: img})
             })

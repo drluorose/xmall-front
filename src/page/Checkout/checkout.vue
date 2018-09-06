@@ -135,13 +135,14 @@
   </div>
 </template>
 <script>
-  import { getCartList, addressList, addressUpdate, addressAdd, addressDel, productDet, submitOrder } from '/api/goods'
+  import {getCartList, addressList, addressUpdate, addressAdd, addressDel, productDet, submitOrder} from '/api/goods'
   import YShelf from '/components/shelf'
   import YButton from '/components/YButton'
   import YPopup from '/components/popup'
   import YHeader from '/common/header'
   import YFooter from '/common/footer'
-  import { getStore } from '/utils/storage'
+  import {getStore} from '/utils/storage'
+
   export default {
     data () {
       return {
@@ -195,12 +196,12 @@
         window.open(window.location.origin + '#/goodsDetails?productId=' + id)
       },
       _getCartList () {
-        getCartList({userId: this.userId}).then(res => {
+        getCartList({userId: this.userId, sign: getStore('sign'), mid: getStore('mid')}).then(res => {
           this.cartList = res.result
         })
       },
       _addressList () {
-        addressList({userId: this.userId}).then(res => {
+        addressList({userId: this.userId, sign: getStore('sign'), mid: getStore('mid')}).then(res => {
           let data = res.result
           if (data.length) {
             this.addList = data

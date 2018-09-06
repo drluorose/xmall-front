@@ -8,7 +8,8 @@
           <div class="box-card" v-for="(item,i) in addList" :key="i">
             <el-card>
               <div slot="header" class="clearfix">
-                <span>收货地址</span>
+                <span class="label">名字</span>
+                <span>{{item.userName}}</span>
                 <el-button style="float: right" type="primary" icon="edit" size="small"
                            @click="update(item)"></el-button>
                 <el-button style="float: right;;margin-right: 5px" type="danger" icon="delete" size="small"
@@ -16,20 +17,20 @@
                            @click="del(item.addressId,i)"></el-button>
               </div>
               <div class="text item">
-                <span>名字:</span>{{item.userName}}
+                <span class="label">电话</span>{{item.tel}}
               </div>
               <div class="text item">
-                <span>电话:</span>{{item.tel}}</div>
+                <span class="label">国家</span>{{item.tbCountry ? item.tbCountry.name : '-'}}
+              </div>
               <div class="text item">
-                <span>国家:</span>{{item.streetName}}</div>
+                <span class="label">城市</span>{{item.tbCity ? item.tbCity.name : '-'}}
+              </div>
               <div class="text item">
-                <span>城市:</span>{{item.streetName}}</div>
-              <div class="text item">
-                <span>街道地址</span>{{item.streetName}}
+                <span class="label">街道地址</span>{{item.streetName}}
                 <a @click="changeDef(item)"
                    href="javascript:;"
                    v-text="item.isDefault?'( 默认地址 )':'设为默认'"
-                   :class="{'defalut-address':item.isDefault}">
+                   :class="{'default-address':item.isDefault}">
                 </a>
               </div>
             </el-card>
@@ -88,7 +89,7 @@
         <y-button text='保存'
                   class="btn"
                   :classStyle="btnHighlight?'main-btn':'disabled-btn'"
-                  @btnClick="save({userId:userId,addressId:msg.addressId,userName:msg.userName,tel:msg.tel,streetName:msg.streetName,isDefault:msg.isDefault})">
+                  @btnClick="save({userId:userId,cityId:msg.cityId,addressId:msg.addressId,userName:msg.userName,tel:msg.tel,streetName:msg.streetName,isDefault:msg.isDefault})">
         </y-button>
       </div>
     </y-popup>
@@ -234,6 +235,9 @@
           this.msg.streetName = item.streetName
           this.msg.isDefault = item.isDefault
           this.msg.addressId = item.addressId
+          this.msg.countryId = item.tbCountry.id
+          this.msg.cityId = item.tbCity.id
+          this._citesCountry()
         } else {
           this.popupTitle = '新增收货地址'
           this.msg.userName = ''
@@ -262,7 +266,7 @@
 </script>
 <style scoped lang="scss">
 
-  .defalut-address {
+  .default-address {
     color: #626262;
     display: inline;
     pointer-events: none;
@@ -316,5 +320,22 @@
     width: 50%;
     padding: 5px 5px;
     display: inline-block;
+  }
+
+  .label {
+
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    margin: 2px 4px 2px 0;
+    padding: 0 8px;
+    border: 1px solid #e8eaec;
+    border-radius: 3px;
+    background: #f7f7f7;
+    font-size: 12px;
+    vertical-align: middle;
+    opacity: 1;
+    overflow: hidden;
+    cursor: pointer;
   }
 </style>
